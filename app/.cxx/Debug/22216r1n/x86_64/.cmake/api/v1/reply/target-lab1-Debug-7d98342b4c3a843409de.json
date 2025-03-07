@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/arm64-v8a/liblab1.so"
+			"path" : "C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so"
 		}
 	],
 	"backtrace" : 1,
@@ -11,7 +11,8 @@
 		"commands" : 
 		[
 			"add_library",
-			"target_link_libraries"
+			"target_link_libraries",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -33,6 +34,18 @@
 				"file" : 0,
 				"line" : 34,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 48,
+				"parent" : 0
 			}
 		]
 	},
@@ -49,6 +62,17 @@
 			[
 				{
 					"define" : "lab1_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/spdlog/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/mbedtls/include"
 				}
 			],
 			"language" : "CXX",
@@ -79,6 +103,16 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "-llog",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\spdlog\\build\\x86_64\\libspdlog.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\mbedtls\\build\\x86_64\\library\\libmbedcrypto.so",
 				"role" : "libraries"
 			},
 			{

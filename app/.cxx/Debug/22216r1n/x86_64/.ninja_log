@@ -1,3 +1,9 @@
 # ninja log v5
-1	62917	7612284600839240	CMakeFiles/lab1.dir/native-lib.cpp.o	3587e6db9683b104
-62935	64726	7612284617883322	C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so	f82f2de6bdcf5b1e
+1	13524	7630473760056177	CMakeFiles/lab1.dir/native-lib.cpp.o	de0e9e98b1024c0e
+13530	13914	7630473764345300	C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so	acd4b7699c389709
+16	10136	7630480373648621	CMakeFiles/lab1.dir/native-lib.cpp.o	de0e9e98b1024c0e
+10137	10558	7630480378291419	C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so	acd4b7699c389709
+12	5830	7630484694961896	CMakeFiles/lab1.dir/native-lib.cpp.o	de0e9e98b1024c0e
+5831	6263	7630484699670799	C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so	acd4b7699c389709
+21	6509	7630492451589431	CMakeFiles/lab1.dir/native-lib.cpp.o	de0e9e98b1024c0e
+6510	6954	7630492456389141	C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so	acd4b7699c389709

@@ -22,7 +22,9 @@
       "abi": "x86_64",
       "artifactName": "lab1",
       "output": "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\build\\intermediates\\cxx\\Debug\\22216r1n\\obj\\x86_64\\liblab1.so",
-      "runtimeFiles": []
+      "runtimeFiles": [
+        "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\mbedtls\\build\\x86_64\\library\\libmbedcrypto.so"
+      ]
     }
   },
   "toolchains": {

@@ -19,6 +19,9 @@ android {
                 cppFlags += "-std=c++17"
             }
         }
+        ndk {
+            abiFilters += listOf("x86", "x86_64")
+        }
     }
 
     buildTypes {
@@ -43,6 +46,8 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    ndkVersion = "26.1.10909125"
+    buildToolsVersion = "35.0.0"
 }
 
 dependencies {

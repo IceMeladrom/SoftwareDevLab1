@@ -53,6 +53,7 @@ build CMakeFiles/lab1.dir/native-lib.cpp.o: CXX_COMPILER__lab1_Debug C$:/Users/R
   DEFINES = -Dlab1_EXPORTS
   DEP_FILE = CMakeFiles\lab1.dir\native-lib.cpp.o.d
   FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC
+  INCLUDES = -IC:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/spdlog/include -IC:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/mbedtls/include
   OBJECT_DIR = CMakeFiles\lab1.dir
   OBJECT_FILE_DIR = CMakeFiles\lab1.dir
   TARGET_COMPILE_PDB = CMakeFiles\lab1.dir\
@@ -66,10 +67,10 @@ build CMakeFiles/lab1.dir/native-lib.cpp.o: CXX_COMPILER__lab1_Debug C$:/Users/R
 #############################################
 # Link the shared library C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\app\build\intermediates\cxx\Debug\22216r1n\obj\x86_64\liblab1.so
 
-build C$:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so: CXX_SHARED_LIBRARY_LINKER__lab1_Debug CMakeFiles/lab1.dir/native-lib.cpp.o
+build C$:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/build/intermediates/cxx/Debug/22216r1n/obj/x86_64/liblab1.so: CXX_SHARED_LIBRARY_LINKER__lab1_Debug CMakeFiles/lab1.dir/native-lib.cpp.o | C$:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/spdlog/build/x86_64/libspdlog.a C$:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/mbedtls/build/x86_64/library/libmbedcrypto.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info
   LINK_FLAGS = -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments
-  LINK_LIBRARIES = -landroid  -llog  -latomic -lm
+  LINK_LIBRARIES = -landroid  -llog  C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/spdlog/build/x86_64/libspdlog.a  C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/mbedtls/build/x86_64/library/libmbedcrypto.so  -latomic -lm
   OBJECT_DIR = CMakeFiles\lab1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
