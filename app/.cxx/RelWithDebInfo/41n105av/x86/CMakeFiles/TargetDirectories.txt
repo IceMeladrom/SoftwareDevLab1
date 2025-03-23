@@ -1,0 +1,3 @@
+C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/.cxx/RelWithDebInfo/41n105av/x86/CMakeFiles/lab1.dir
+C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/.cxx/RelWithDebInfo/41n105av/x86/CMakeFiles/edit_cache.dir
+C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/.cxx/RelWithDebInfo/41n105av/x86/CMakeFiles/rebuild_cache.dir

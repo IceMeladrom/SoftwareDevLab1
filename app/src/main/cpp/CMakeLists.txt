@@ -38,12 +38,12 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
 
 add_library(spdlog STATIC IMPORTED)
-add_library(mbedcrypto STATIC IMPORTED)
+add_library(mbedcrypto SHARED IMPORTED)
 
 set_target_properties(spdlog PROPERTIES IMPORTED_LOCATION
-        C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\spdlog\\build\\x86_64\\libspdlog.a)
+        C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\spdlog\\build\\${ANDROID_ABI}\\libspdlog.a)
 set_target_properties(mbedcrypto PROPERTIES IMPORTED_LOCATION
-        C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\mbedtls\\build\\x86_64\\library\\libmbedcrypto.so)
+        C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\mbedtls\\build\\${ANDROID_ABI}\\library\\libmbedcrypto.so)
 
 target_include_directories(lab1 PUBLIC
         C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\spdlog\\include

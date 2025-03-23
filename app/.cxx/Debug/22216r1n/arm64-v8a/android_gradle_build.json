@@ -1,0 +1,40 @@
+{
+  "buildFiles": [
+    "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Robert\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\.cxx\\Debug\\22216r1n\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Robert\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\.cxx\\Debug\\22216r1n\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "lab1::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "lab1",
+      "output": "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\build\\intermediates\\cxx\\Debug\\22216r1n\\obj\\arm64-v8a\\liblab1.so",
+      "runtimeFiles": [
+        "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\libs\\mbedtls\\build\\arm64-v8a\\library\\libmbedcrypto.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\Robert\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\Robert\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

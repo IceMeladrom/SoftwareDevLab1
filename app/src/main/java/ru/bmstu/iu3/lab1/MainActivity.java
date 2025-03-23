@@ -1,9 +1,22 @@
 package ru.bmstu.iu3.lab1;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+
+import java.nio.charset.StandardCharsets;
 
 import ru.bmstu.iu3.lab1.databinding.ActivityMainBinding;
 
@@ -16,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ActivityMainBinding binding;
+    ActivityResultLauncher activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +38,54 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        int res = initRng();
-        byte[] v = randomBytes(10);
-        byte[] v2 = randomBytes(10);
 
-        byte[] key = new byte[]{'k', 'a', 'k', '7'};
-        byte[] data = new byte[]{'h', 'e', 'l', 'l', 'o'};
+        activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback() {
+                    @Override
+                    public void onActivityResult(Object o) {
+                        ActivityResult result = (ActivityResult) o;
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            // обработка результата
+                            String pin = data.getStringExtra("pin");
+                            Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-        byte[] encrypted = encrypt(key, data);
-        byte[] decrypted = decrypt(key, encrypted);
+//        int res = initRng();
+//        byte[] v = randomBytes(10);
+//        byte[] v2 = randomBytes(10);
+//
+//        String keyStr = "1234567812345678";
+//        String dataStr = "HelloHelloHello1";
+//        byte[] key = keyStr.getBytes(StandardCharsets.UTF_8);
+//        byte[] data = dataStr.getBytes(StandardCharsets.UTF_8);
+//
+//
+//        byte[] encrypted = encrypt(key, data);
+//        byte[] decrypted = decrypt(key, encrypted);
 
         // Example of a call to a native method
-        TextView tv = findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+//        TextView tv = findViewById(R.id.sample_text);
+//        tv.setText(stringFromJNI());
+    }
+
+    public static byte[] stringToHex(String s) {
+        byte[] hex;
+        try {
+            hex = Hex.decodeHex(s.toCharArray());
+        } catch (DecoderException ex) {
+            hex = null;
+        }
+        return hex;
+    }
+
+    public void onButtonClick(View v) {
+        Intent it = new Intent(this, PinpadActivity.class);
+//        startActivity(it);
+        activityResultLauncher.launch(it);
     }
 
     /**

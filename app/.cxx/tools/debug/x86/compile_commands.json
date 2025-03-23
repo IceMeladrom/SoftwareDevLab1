@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/app/.cxx/Debug/22216r1n/x86",
+  "command": "C:\\Users\\Robert\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android31 --sysroot=C:/Users/Robert/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dlab1_EXPORTS -IC:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/spdlog/include -IC:/Users/Robert/AndroidStudioProjects/SoftwareDevelopment/libs/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -o CMakeFiles\\lab1.dir\\native-lib.cpp.o -c C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\src\\main\\cpp\\native-lib.cpp",
+  "file": "C:\\Users\\Robert\\AndroidStudioProjects\\SoftwareDevelopment\\app\\src\\main\\cpp\\native-lib.cpp"
+}
+]
