@@ -17,6 +17,7 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 
 import ru.bmstu.iu3.lab1.databinding.ActivityMainBinding;
 
@@ -49,6 +50,14 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
         return pin;
     }
 
+
+    @Override
+    public void transactionResult(boolean result) {
+        runOnUiThread(() -> {
+            Toast.makeText(MainActivity.this, result ? "ok" : "failed", Toast.LENGTH_SHORT).show();
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,16 +88,27 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent data = result.getData();
                             // обработка результата
-                            String pin = data.getStringExtra("pin");
-                            Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
+                            //String pin = data.getStringExtra("pin");
+                            //Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
+                            pin = data.getStringExtra("pin");
+
+                            synchronized (MainActivity.this) {
+                                MainActivity.this.notifyAll();
+                            }
                         }
                     }
-                });
+                }
+        );
+        byte[] trd = stringToHex("9F0206000000000100");
+        transaction(trd);
+
 
         // Example of a call to a native method
 //        TextView tv = findViewById(R.id.sample_text);
 //        tv.setText(stringFromJNI());
     }
+
+    public native boolean transaction(byte[] trd);
 
     public static byte[] stringToHex(String s) {
         byte[] hex;
@@ -101,14 +121,12 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
     }
 
     public void onButtonClick(View v) {
-        try {
-
-            Intent it = new Intent(this, PinpadActivity.class);
+        Intent it = new Intent(this, PinpadActivity.class);
+        it.putExtra("amount", "100"); // пример значения
+        it.putExtra("ptc", 0);              // пример количества попыток
 //        startActivity(it);
-            activityResultLauncher.launch(it);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        activityResultLauncher.launch(it);
+
     }
 
 
