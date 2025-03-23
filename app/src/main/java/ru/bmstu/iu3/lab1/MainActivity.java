@@ -9,13 +9,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.io.IOUtils;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 
@@ -32,6 +37,43 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
     private ActivityMainBinding binding;
     private ActivityResultLauncher activityResultLauncher;
     private String pin;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+
+    protected void testHttpClient() {
+        new Thread(() -> {
+            try {
+                HttpURLConnection uc = (HttpURLConnection)
+                        (new URL("http://10.44.78.161:25575/api/v1/title").openConnection());
+                InputStream inputStream = uc.getInputStream();
+                String html = IOUtils.toString(inputStream, "UTF-8");
+                String title = getPageTitle(html);
+                runOnUiThread(() -> {
+                    Toast.makeText(this, title, Toast.LENGTH_LONG).show();
+                });
+            } catch (Exception ex) {
+                Log.e("fapptag", "Http client fails", ex);
+            }
+        }).start();
+    }
+
+    protected String getPageTitle(String html) {
+        int pos = html.indexOf("<title");
+        String p = "not found";
+        if (pos >= 0) {
+            int pos2 = html.indexOf("<", pos + 1);
+            if (pos2 >= 0)
+                p = html.substring(pos + 7, pos2);
+        }
+        return p;
+    }
+
 
     @Override
     public String enterPin(int ptc, String amount) {
@@ -58,56 +100,6 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
         });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-
-        int res = initRng();
-        byte[] v = randomBytes(10);
-        byte[] v2 = randomBytes(10);
-
-        String keyStr = "1234567812345678";
-        String dataStr = "HelloHelloHello1";
-        byte[] key = keyStr.getBytes(StandardCharsets.UTF_8);
-        byte[] data = dataStr.getBytes(StandardCharsets.UTF_8);
-
-
-        byte[] encrypted = encrypt(key, data);
-        byte[] decrypted = decrypt(key, encrypted);
-
-        activityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback() {
-                    @Override
-                    public void onActivityResult(Object o) {
-                        ActivityResult result = (ActivityResult) o;
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Intent data = result.getData();
-                            // обработка результата
-                            //String pin = data.getStringExtra("pin");
-                            //Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
-                            pin = data.getStringExtra("pin");
-
-                            synchronized (MainActivity.this) {
-                                MainActivity.this.notifyAll();
-                            }
-                        }
-                    }
-                }
-        );
-        byte[] trd = stringToHex("9F0206000000000100");
-        transaction(trd);
-
-
-        // Example of a call to a native method
-//        TextView tv = findViewById(R.id.sample_text);
-//        tv.setText(stringFromJNI());
-    }
-
     public native boolean transaction(byte[] trd);
 
     public static byte[] stringToHex(String s) {
@@ -121,12 +113,13 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
     }
 
     public void onButtonClick(View v) {
-        Intent it = new Intent(this, PinpadActivity.class);
-        it.putExtra("amount", "100"); // пример значения
-        it.putExtra("ptc", 0);              // пример количества попыток
+//        Intent it = new Intent(this, PinpadActivity.class);
+//        it.putExtra("amount", "100"); // пример значения
+//        it.putExtra("ptc", 0);              // пример количества попыток
 //        startActivity(it);
-        activityResultLauncher.launch(it);
-
+//
+//        activityResultLauncher.launch(it);
+        testHttpClient();
     }
 
 
@@ -143,4 +136,8 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
     public static native byte[] encrypt(byte[] key, byte[] data);
 
     public static native byte[] decrypt(byte[] key, byte[] data);
+
 }
+
+
+
