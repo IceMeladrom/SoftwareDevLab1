@@ -20,7 +20,7 @@ import java.nio.charset.StandardCharsets;
 
 import ru.bmstu.iu3.lab1.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TransactionEvents {
 
     // Used to load the 'lab1' library on application startup.
     static {
@@ -29,7 +29,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ActivityMainBinding binding;
-    ActivityResultLauncher activityResultLauncher;
+    private ActivityResultLauncher activityResultLauncher;
+    private String pin;
+
+    @Override
+    public String enterPin(int ptc, String amount) {
+        pin = new String();
+        Intent it = new Intent(MainActivity.this, PinpadActivity.class);
+        it.putExtra("ptc", ptc);
+        it.putExtra("amount", amount);
+        synchronized (MainActivity.this) {
+            activityResultLauncher.launch(it);
+            try {
+                MainActivity.this.wait();
+            } catch (Exception ex) {
+                //todo: log error
+            }
+        }
+        return pin;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +56,19 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+        int res = initRng();
+        byte[] v = randomBytes(10);
+        byte[] v2 = randomBytes(10);
+
+        String keyStr = "1234567812345678";
+        String dataStr = "HelloHelloHello1";
+        byte[] key = keyStr.getBytes(StandardCharsets.UTF_8);
+        byte[] data = dataStr.getBytes(StandardCharsets.UTF_8);
+
+
+        byte[] encrypted = encrypt(key, data);
+        byte[] decrypted = decrypt(key, encrypted);
 
         activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -53,19 +84,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-//        int res = initRng();
-//        byte[] v = randomBytes(10);
-//        byte[] v2 = randomBytes(10);
-//
-//        String keyStr = "1234567812345678";
-//        String dataStr = "HelloHelloHello1";
-//        byte[] key = keyStr.getBytes(StandardCharsets.UTF_8);
-//        byte[] data = dataStr.getBytes(StandardCharsets.UTF_8);
-//
-//
-//        byte[] encrypted = encrypt(key, data);
-//        byte[] decrypted = decrypt(key, encrypted);
 
         // Example of a call to a native method
 //        TextView tv = findViewById(R.id.sample_text);
@@ -83,10 +101,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onButtonClick(View v) {
-        Intent it = new Intent(this, PinpadActivity.class);
+        try {
+
+            Intent it = new Intent(this, PinpadActivity.class);
 //        startActivity(it);
-        activityResultLauncher.launch(it);
+            activityResultLauncher.launch(it);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     /**
      * A native method that is implemented by the 'lab1' native library,
@@ -101,5 +125,4 @@ public class MainActivity extends AppCompatActivity {
     public static native byte[] encrypt(byte[] key, byte[] data);
 
     public static native byte[] decrypt(byte[] key, byte[] data);
-
 }
