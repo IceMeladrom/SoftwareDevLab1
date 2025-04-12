@@ -1,0 +1,14 @@
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\BackendApplication.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\ArtistContoller.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\CountryController.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\UserController.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Artist.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Country.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Museum.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Painting.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\User.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\ArtistRepository.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\CountryRepository.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\MuseumRepository.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\PaintingRepository.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\UserRepository.java

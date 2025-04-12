@@ -1,0 +1,14 @@
+ru\iu3\backend\controller\ArtistContoller.class
+ru\iu3\backend\repository\MuseumRepository.class
+ru\iu3\backend\repository\UserRepository.class
+ru\iu3\backend\entity\Museum.class
+ru\iu3\backend\entity\User.class
+ru\iu3\backend\controller\CountryController.class
+ru\iu3\backend\entity\Artist.class
+ru\iu3\backend\entity\Country.class
+ru\iu3\backend\entity\Painting.class
+ru\iu3\backend\repository\PaintingRepository.class
+ru\iu3\backend\BackendApplication.class
+ru\iu3\backend\controller\UserController.class
+ru\iu3\backend\repository\ArtistRepository.class
+ru\iu3\backend\repository\CountryRepository.class
