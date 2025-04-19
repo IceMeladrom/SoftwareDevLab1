@@ -1,6 +1,10 @@
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\auth\AuthenticationFilter.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\auth\AuthenticationProvider.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\auth\SecurityConfiguration.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\BackendApplication.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\ArtistContoller.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\CountryController.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\LoginController.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\controller\UserController.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Artist.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\entity\Country.java
@@ -12,3 +16,4 @@ C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\mai
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\MuseumRepository.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\PaintingRepository.java
 C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\repository\UserRepository.java
+C:\Users\Robert\AndroidStudioProjects\SoftwareDevelopment\spring\backend\src\main\java\ru\iu3\backend\tools\Utils.java
