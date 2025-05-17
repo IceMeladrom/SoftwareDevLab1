@@ -1,4 +1,3 @@
-
 package ru.iu3.backend.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;

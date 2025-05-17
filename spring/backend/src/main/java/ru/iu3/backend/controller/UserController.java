@@ -13,7 +13,7 @@ import ru.iu3.backend.repository.MuseumRepository;
 import ru.iu3.backend.repository.UserRepository;
 
 import java.util.*;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
@@ -26,6 +26,20 @@ public class UserController {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+//    @PostMapping("/users")
+//    public ResponseEntity<Object> createUser(@Validated @RequestBody User user) throws ResponseStatusException{
+//        try {
+//            User nc = userRepository.save(user);
+//            return new ResponseEntity<Object>(nc, HttpStatus.OK);
+//        } catch (Exception ex) {
+//            String error;
+//            if (ex.getMessage().contains("users.name_UNIQUE"))
+//                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Данный пользователь уже есть в базе");
+//            else
+//                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Неизвестная ошибка");
+//        }
+//    }
 
     @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
